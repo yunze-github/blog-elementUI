@@ -63,7 +63,6 @@ import qs from 'querystring'
         null:{}
       }
     },
-
 // 生命周期
     created(){
         request.get("http://127.0.0.1:8989/category/findAll")
@@ -71,10 +70,8 @@ import qs from 'querystring'
             this.tableData=result.data
         })
     },
-
 // 方法
     methods: {
-
     // 重新加载数据
         reload() {
              request.get("http://127.0.0.1:8989/category/findAll")
@@ -82,7 +79,6 @@ import qs from 'querystring'
                 this.tableData=result.data
             })
         },
-
     // 选择或者取消
         toggleSelection(rows) {
             if (rows) {
@@ -93,12 +89,10 @@ import qs from 'querystring'
                 this.$refs.multipleTable.clearSelection();
             }
             },
-
     //选择单行栏目
         handleSelectionChange(val) {
             this.ids = val.map(item=>item.id);
         },
-
     // 删除单个栏目
         handleDelete(id) {
             this.$confirm('删除该'+ id +'号栏目, 是否继续?', '提示', {
@@ -118,7 +112,6 @@ import qs from 'querystring'
             })
             })
         },
-
     //  删除多个栏目
         deleteSelection(ids) { 
             this.$confirm('删除该栏目, 是否继续?', '提示', {
@@ -160,20 +153,16 @@ import qs from 'querystring'
                 });
             })
         },
-
     //添加栏目
         handleAdd(){
             this.dialog=this.null
             this.dialogFormVisible = true
         },
-
     // 编辑栏目
         handleEdit(row){
             this.dialog=row
             this.dialogFormVisible = true
         }
-
     }
-
   }
 </script>

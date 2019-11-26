@@ -58,7 +58,7 @@ export default {
     onSubmit(){
       request({
         method:"post",
-        url:"http://127.0.0.1:8989/article/saveOrUpdate",
+        url:"/article/saveOrUpdate",
         //将json数据转化为字符转拼接，存储到请求体中通过post，put，patch方法提交
         data:qs.stringify(this.form),
         headers:{
@@ -77,7 +77,7 @@ export default {
 
     // 栏目信息下拉框查询
     categoryHandler(){
-      request.get("http://127.0.0.1:8989/category/findAll")
+      request.get("/category/findAll")
       .then(result=>{
         this.categorys = result.data;
       })
@@ -85,7 +85,7 @@ export default {
 
     // 栏目信息下拉框查询
     userHandler(){
-      request.get("http://127.0.0.1:8989/user/findAll")
+      request.get("/user/findAll")
       .then(result=>{
         this.users = result.data;
       })

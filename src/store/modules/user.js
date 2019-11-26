@@ -54,8 +54,9 @@ const actions = {
           reject('Verification failed, please Login again.')
         }
 
-        const { roles, name, avatar, introduction } = data
-
+        const { realname: name, userFace: avatar, introduction } = data
+        // [{id:1,name:"编辑"},{id:2,name:"管理员"}]
+        const roles = data.roles.map(item => item.name)
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
           reject('getInfo: roles must be a non-null array!')
@@ -84,7 +85,6 @@ const actions = {
         // reset visited views and cached views
         // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
         dispatch('tagsView/delAllViews', null, { root: true })
-
         resolve()
       }).catch(error => {
         reject(error)

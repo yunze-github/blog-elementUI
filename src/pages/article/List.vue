@@ -40,7 +40,7 @@ export default {
   //生命周期
   created(){
     //调用ajax查询数据
-    request.get("http://localhost:8989/article/findAll")
+    request.get("/article/findAll")
     .then(result=>{
       this.articles = result.data;
     })
@@ -49,7 +49,7 @@ export default {
   methods:{
     // 重载数据
     reload(){
-      request.get("http://localhost:8989/article/findAll")
+      request.get("/article/findAll")
       .then(result=>{
       this.articles = result.data;
       })
@@ -69,7 +69,7 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          let url ="http://localhost:8989/article/dropOne"
+          let url ="/article/dropOne"
           request.get(url,{params:{id}})
           // 响应通知
           .then(response =>{

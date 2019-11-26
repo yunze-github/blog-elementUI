@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">智慧校园 . 课调云平台</h3>
       </div>
 
       <el-form-item prop="username">
@@ -74,7 +74,6 @@
 </template>
 
 <script>
-import { validUsername } from '@/utils/validate'
 import SocialSign from './components/SocialSignin'
 
 export default {
@@ -82,11 +81,12 @@ export default {
   components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
-      } else {
-        callback()
-      }
+      // if (!validUsername(value)) {
+      //   callback(new Error('Please enter the correct user name'))
+      // } else {
+      //   callback()
+      // }
+      callback()
     }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
